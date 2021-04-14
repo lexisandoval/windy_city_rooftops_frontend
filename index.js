@@ -1,9 +1,8 @@
 const endPoint = "http://localhost:3000/api/v1/rooftops"
+const createRooftopForm = document.querySelector('#rt');
 
 document.addEventListener('DOMContentLoaded', () => {
   getRooftops()
-
-  const createRooftopForm = document.querySelector('#rt');
 
   createRooftopForm.addEventListener('submit', (e) =>
     createFormHandler(e))
@@ -70,8 +69,11 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
     // render JSON response
     const rooftopMarkup = `<div data-id=${rooftop.id}>
+                            <div class="alert alert-success" role="alert">Rooftop has been added!</div>
                               <div class="product-item-title d-flex">
                                 <div class="bg-faded p-5 d-flex mr-auto rounded">
+                            
+
                                   <a class="p-link" href="${rooftopData.attributes.website_url}" target="_blank">
                                     <h2 class="section-heading mb-0">
                                       <span class="section-heading-lower center">${rooftopData.attributes.name}</span>
@@ -90,11 +92,11 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
                             </div><br><br><br>`;
 
     document.querySelector('#rooftop-container').innerHTML += rooftopMarkup;
+
+    createRooftopForm.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   })
 }
-
-
-
 
 const titleInput = document.querySelector('#input-title').value
   const descriptionInput = document.querySelector('#input-description').value

@@ -38,8 +38,9 @@ function getRooftops() {
           <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" style="width:80%;height:auto;" src="${rooftop.attributes.image_url}" alt="">
           <div class="product-item-description d-flex mr-auto">
             <div class="bg-faded p-5 rounded">
-              <p class="mb-0">${rooftop.attributes.description}</p>
-            </div
+              <p class="mb-0">${rooftop.attributes.description}</p><br>
+              <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
+            </div>
           </div>
         </div>`;
 

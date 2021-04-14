@@ -97,6 +97,12 @@ p {
   text-align: center;
 }
 
+.neighborhood {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: 'Raleway';
+}
+
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 0.9rem;

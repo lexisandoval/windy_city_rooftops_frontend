@@ -1,7 +1,11 @@
 const endPoint = "http://localhost:3000/api/v1/rooftops"
+var element = document.getElementById("rooftop-form");
 
 document.addEventListener('DOMContentLoaded', () => {
   getRooftops()
+
+  selectElement.addEventListener('submit', (e) =>
+    createFormHandler(e))
 })
 
 function getRooftops() {
@@ -10,22 +14,6 @@ function getRooftops() {
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
       const rooftopMarkup =
-        // `<div data-id=${rooftop.id}>
-        //   <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="${rooftop.attributes.image_url}" alt="">
-
-        //   <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-        //     <h2 class="section-heading mb-4"><span class="section-heading-lower">${rooftop.attributes.name}</span></h2>
-
-        //     <span class="section-heading-upper"><b>${rooftop.attributes.address}</b></span><br><br>
-
-        //     <span class="section-heading-upper">${rooftop.attributes.description}</span>
-
-        //     <div class="intro-button mx-auto">
-        //       <button data-id=${rooftop.id} class="btn btn-primary btn-xl">Edit</button>
-        //     </div>
-        //   </div>
-        // </div>`;
-
         `<div data-id=${rooftop.id}>
           <div class="product-item-title d-flex">
             <div class="bg-faded p-5 d-flex mr-auto rounded">
@@ -44,9 +32,27 @@ function getRooftops() {
               <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
             </div>
           </div>
-        </div><br><br><br><br>`;
+        </div><br><br><br>`;
 
         document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
     })
   })
+}
+
+function createSelectHandler(e) {
+  e.preventDefault()
+
+  const nameInput = document.querySelector('#rt-name').value;
+  const addressInput = document.querySelector('#rt-address').value;
+  const imgInput = document.querySelector('#rt-image').value;
+  const websiteInput = document.querySelector('#rt-website').value;
+  const descriptionInput = document.querySelector('#rt-description').value;
+  const neighborhoodID = parseInt(document.querySelector('#neighborhoods').value);
+
+  postFetch(nameInput, addressInput, imgInput, websiteInput, descriptionInput, neighborhoodID)
+  
+}
+
+function postFetch(name, address, image, website, description, neighborhood_id) {
+  console.log();
 }

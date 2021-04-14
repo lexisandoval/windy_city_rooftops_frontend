@@ -29,20 +29,22 @@ function getRooftops() {
         `<div data-id=${rooftop.id}>
           <div class="product-item-title d-flex">
             <div class="bg-faded p-5 d-flex ml-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-lower">${rooftop.attributes.name}</span>
-                <span class="center section-heading-upper">${rooftop.attributes.address}</span>
-              </h2>
+              <a class="p-link" href="${rooftop.attributes.website_url}" target="_blank">
+                <h2 class="section-heading mb-0">
+                  <span class="section-heading-lower">${rooftop.attributes.name}</span>
+                  <span class="center section-heading-upper">${rooftop.attributes.address}</span>
+                </h2>
+              </a>
             </div>
           </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" style="width:80%;height:auto;" src="${rooftop.attributes.image_url}" alt="">
+          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 bar-img" src="${rooftop.attributes.image_url}" alt="">
           <div class="product-item-description d-flex mr-auto">
             <div class="bg-faded p-5 rounded">
               <p class="mb-0">${rooftop.attributes.description}</p><br>
               <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
             </div>
           </div>
-        </div>`;
+        </div><br><br><br><br>`;
 
         document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
     })

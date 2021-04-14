@@ -103,6 +103,16 @@ p {
   font-family: 'Raleway';
 }
 
+.p-link, .p-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.bar-img {
+  width:90%;
+  height:auto;
+}
+
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 0.9rem;

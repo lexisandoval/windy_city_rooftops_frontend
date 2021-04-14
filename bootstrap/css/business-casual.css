@@ -97,6 +97,10 @@ p {
   text-align: center;
 }
 
+.white {
+  background-color: white;
+}
+
 .neighborhood {
   text-transform: uppercase;
   font-weight: 800;
@@ -106,6 +110,11 @@ p {
 .p-link, .p-link:hover {
   text-decoration: none;
   color: black;
+}
+
+.top-link, .top-link:hover {
+  text-decoration: none;
+  color:black;
 }
 
 .bar-img {
@@ -267,13 +276,15 @@ p {
 }
 
 .btn-primary {
-  background-color: #e6a756;
-  border-color: #e6a756;
+  background-color: white;
+  border-color: white;
+  color:black;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #df902a;
-  border-color: #df902a;
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  color: black;
 }
 
 .font-weight-light {

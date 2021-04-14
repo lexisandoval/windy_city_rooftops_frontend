@@ -1,10 +1,11 @@
 const endPoint = "http://localhost:3000/api/v1/rooftops"
-var element = document.getElementById("rooftop-form");
 
 document.addEventListener('DOMContentLoaded', () => {
   getRooftops()
 
-  selectElement.addEventListener('submit', (e) =>
+  const createRooftopForm = document.querySelector('#rt');
+
+  createRooftopForm.addEventListener('submit', (e) =>
     createFormHandler(e))
 })
 
@@ -39,7 +40,7 @@ function getRooftops() {
   })
 }
 
-function createSelectHandler(e) {
+function createFormHandler(e) {
   e.preventDefault()
 
   const nameInput = document.querySelector('#rt-name').value;
@@ -49,10 +50,53 @@ function createSelectHandler(e) {
   const descriptionInput = document.querySelector('#rt-description').value;
   const neighborhoodID = parseInt(document.querySelector('#neighborhoods').value);
 
-  postFetch(nameInput, addressInput, imgInput, websiteInput, descriptionInput, neighborhoodID)
-  
+  postRooftop(nameInput, addressInput, imgInput, websiteInput, descriptionInput, neighborhoodID)
 }
 
-function postFetch(name, address, image, website, description, neighborhood_id) {
-  console.log();
+function postRooftop(name, address, image_url, website_url, description, neighborhood_id) {
+  const bodyData = {name, address, image_url, website_url, description, neighborhood_id, user_id: 1}
+
+  fetch(endPoint, {
+    // POST request
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(rooftop => {
+    console.log(rooftop);
+
+    const rooftopData = rooftop.data
+
+    // render JSON response
+    const rooftopMarkup = `<div data-id=${rooftop.id}>
+                              <div class="product-item-title d-flex">
+                                <div class="bg-faded p-5 d-flex mr-auto rounded">
+                                  <a class="p-link" href="${rooftopData.attributes.website_url}" target="_blank">
+                                    <h2 class="section-heading mb-0">
+                                      <span class="section-heading-lower center">${rooftopData.attributes.name}</span>
+                                      <span class="center section-heading-upper">${rooftopData.attributes.address}</span>
+                                    </h2>
+                                  </a>
+                                </div>
+                              </div>
+                              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 bar-img" src="${rooftopData.attributes.image_url}" alt="">
+                              <div class="product-item-description d-flex ml-auto">
+                                <div class="bg-faded p-5 rounded">
+                                  <p class="mb-0">${rooftopData.attributes.description}</p><br>
+                                  <p class="mb-0 neighborhood">Neighborhood: ${rooftopData.attributes.neighborhood.name}</p>
+                                </div>
+                              </div>
+                            </div><br><br><br>`;
+
+    document.querySelector('#rooftop-container').innerHTML += rooftopMarkup;
+  })
 }
+
+
+
+
+const titleInput = document.querySelector('#input-title').value
+  const descriptionInput = document.querySelector('#input-description').value
+  const imageInput = document.querySelector('#input-url').value
+  const categoryId = parseInt(document.querySelector('#categories').value)

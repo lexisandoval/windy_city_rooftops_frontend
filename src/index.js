@@ -38,6 +38,7 @@ function createFormHandler(e) {
 
 function postRooftop(name, address, image_url, website_url, description, neighborhood_id) {
   const bodyData = {name, address, image_url, website_url, description, neighborhood_id, user_id: 1}
+  // change user_id after User model is finalized
 
   fetch(endPoint, {
     // POST request

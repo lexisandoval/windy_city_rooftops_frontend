@@ -16,9 +16,10 @@ function getRooftops() {
   .then(response => response.json())
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
-      let newRooftop = new Rooftop(rooftop, rooftop.attributes)
+      
+      const newRooftop = new Rooftop(rooftop, rooftop.attributes)
 
-      render(rooftop)
+      document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
     })
   }) 
 }
@@ -64,33 +65,6 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
 function slowScroll() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-
-function render(rooftop) {
-  const rooftopMarkup = `<div data-id=${rooftop.id}>
-    <div class="product-item-title d-flex">
-      <div class="bg-faded p-5 d-flex mr-auto rounded">
-        <a class="p-link" href="${rooftop.attributes.website_url}" target="_blank">
-          <h2 class="section-heading mb-0">
-            <span class="section-heading-lower center">${rooftop.attributes.name}</span>
-            <span class="center section-heading-upper">${rooftop.attributes.address}</span>
-          </h2>
-        </a>
-      </div>
-    </div>
-    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="Chicago Rooftop">
-    <div class="product-item-description d-flex ml-auto">
-      <div class="bg-faded p-5 rounded">
-        <p class="mb-0">${rooftop.attributes.description}</p><br>
-        <div class="row">
-        <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
-        <button data-id=${rooftop.id} class="btn btn-primary ml-auto">Edit</button>
-        </div>
-      </div>
-    </div>
-  </div><br><br><br>`;
-
-  document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
 }
 
 function successMsg() {

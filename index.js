@@ -25,7 +25,7 @@ function getRooftops() {
               </a>
             </div>
           </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 bar-img" src="${rooftop.attributes.image_url}" alt="">
+          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="">
           <div class="product-item-description d-flex ml-auto">
             <div class="bg-faded p-5 rounded">
               <p class="mb-0">${rooftop.attributes.description}</p><br>
@@ -72,8 +72,6 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
                             <div class="alert alert-success" role="alert">Rooftop has been added!</div>
                               <div class="product-item-title d-flex">
                                 <div class="bg-faded p-5 d-flex mr-auto rounded">
-                            
-
                                   <a class="p-link" href="${rooftopData.attributes.website_url}" target="_blank">
                                     <h2 class="section-heading mb-0">
                                       <span class="section-heading-lower center">${rooftopData.attributes.name}</span>
@@ -82,7 +80,7 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
                                   </a>
                                 </div>
                               </div>
-                              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 bar-img" src="${rooftopData.attributes.image_url}" alt="">
+                              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftopData.attributes.image_url}" alt="">
                               <div class="product-item-description d-flex ml-auto">
                                 <div class="bg-faded p-5 rounded">
                                   <p class="mb-0">${rooftopData.attributes.description}</p><br>
@@ -94,11 +92,10 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
     document.querySelector('#rooftop-container').innerHTML += rooftopMarkup;
 
     createRooftopForm.reset();
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    slowScroll();
   })
 }
 
-const titleInput = document.querySelector('#input-title').value
-  const descriptionInput = document.querySelector('#input-description').value
-  const imageInput = document.querySelector('#input-url').value
-  const categoryId = parseInt(document.querySelector('#categories').value)
+function slowScroll() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}

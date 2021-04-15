@@ -8,12 +8,10 @@ class Rooftop {
     this.website_url = rooftopAttributes.website_url;
     this.description = rooftopAttributes.description;
     this.neighborhood = rooftopAttributes.neighborhood;
-    this.user_id = rooftopAttributes.user_id 
     Rooftop.all.push(this)
   }
 
   render() {
-    debugger
     return `<div data-id=${this.id}>
       <div class="product-item-title d-flex">
         <div class="bg-faded p-5 d-flex mr-auto rounded">
@@ -31,11 +29,14 @@ class Rooftop {
           <p class="mb-0">${this.description}</p><br>
           <div class="row">
           <p class="mb-0 neighborhood">Neighborhood: ${this.neighborhood.name}</p>
-          <button data-id=${this.id} class="btn btn-primary ml-auto">Edit</button>
           </div>
         </div>
       </div>
     </div><br><br><br>`;
+  }
+
+  renderEditBtn() {
+    return `<button data-id=${this.id} id="editBtn" class="btn btn-primary ml-auto">Edit</button>`;
   }
 
   static findById(id) {

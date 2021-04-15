@@ -1,13 +1,20 @@
 const endPoint = "http://localhost:3000/api/v1/rooftops"
 const createRooftopForm = document.querySelector('#rt');
-const aboutLink = document.querySelector('#about');
 
 document.addEventListener('DOMContentLoaded', () => {
   getRooftops()
 
   createRooftopForm.addEventListener('submit', (e) => createFormHandler(e))
 
+  const aboutLink = document.querySelector('#about');
   aboutLink.addEventListener('click', (e) => renderAbout(e))
+
+  const rooftopEditBtn = document.querySelector('#editBtn')
+  rooftopEditBtn.addEventListener('click', e => {
+    const id = parseInt(e.target.dataset.id);
+    const rooftop = Rooftop.findById(id);
+    console.log(rooftop);
+  });
 })
 
 function getRooftops() {
@@ -19,6 +26,7 @@ function getRooftops() {
       const newRooftop = new Rooftop(rooftop, rooftop.attributes)
 
       document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
+
     })
   }) 
 }
@@ -37,11 +45,9 @@ function createFormHandler(e) {
 }
 
 function postRooftop(name, address, image_url, website_url, description, neighborhood_id) {
-  const bodyData = {name, address, image_url, website_url, description, neighborhood_id, user_id: 1}
-  // change user_id after User model is finalized
+  const bodyData = {name, address, image_url, website_url, description, neighborhood_id}
 
   fetch(endPoint, {
-    // POST request
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(bodyData)

@@ -78,7 +78,7 @@ function render(rooftop) {
         </a>
       </div>
     </div>
-    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="">
+    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="Chicago Rooftop">
     <div class="product-item-description d-flex ml-auto">
       <div class="bg-faded p-5 rounded">
         <p class="mb-0">${rooftop.attributes.description}</p><br>
@@ -103,7 +103,7 @@ function renderAbout(e) {
 
   const aboutMarkup =  `<section class="page-section about-heading">
     <div class="container">
-      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" style="width:30%; height:auto;" src="bootstrap/img/lexi.jpg" alt="">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" style="width:30%; height:auto;" src="public/images/lexi.jpg" alt="">
       <div class="about-heading-content">
         <div class="row">
           <div class="col-xl-9 col-lg-10 mx-auto">

@@ -1,14 +1,8 @@
-# WindyCityRooftops API
+# WindyCityRooftops
 
 WindyCityRooftops is an SPA that allows users to learn about Chicago's best rooftop bars and restaurants.
 
 ## Installation
-
-Clone the [backend repository](https://github.com/lexisandoval/windy_city_rooftops_backend.git) and then execute:
-
-    $ bundle install
-    $ rails db:migrate
-    $ rails db:seed
 
 Clone this repository and then execute:
 
@@ -18,9 +12,9 @@ Clone this repository and then execute:
 
 The web application will open when you run the command above.
 
-You may visit the API's website at https://windycityrooftops-api.herokuapp.com.
-
 Once open, you may browse through and add to a list of Chicago's best rooftops. Cheers!
+
+You may visit the API/backend repository [here](https://github.com/lexisandoval/windy_city_rooftops_backend.git) and its website [here](https://windycityrooftops-api.herokuapp.com).
 
 ## Contributing
 

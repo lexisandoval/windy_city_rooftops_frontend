@@ -5,8 +5,7 @@ const aboutLink = document.querySelector('#about');
 document.addEventListener('DOMContentLoaded', () => {
   getRooftops()
 
-  createRooftopForm.addEventListener('submit', (e) =>
-    createFormHandler(e))
+  createRooftopForm.addEventListener('submit', (e) => createFormHandler(e))
 
   aboutLink.addEventListener('click', (e) => renderAbout(e))
 })
@@ -16,7 +15,7 @@ function getRooftops() {
   .then(response => response.json())
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
-      
+
       const newRooftop = new Rooftop(rooftop, rooftop.attributes)
 
       document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
@@ -52,7 +51,9 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
     const rooftopData = rooftop.data
 
-    render(rooftopData);
+    const newRooftop = new Rooftop(rooftopData, rooftopData.attributes)
+
+    document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
 
     successMsg();
     createRooftopForm.reset();

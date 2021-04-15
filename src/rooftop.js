@@ -38,6 +38,10 @@ class Rooftop {
     </div><br><br><br>`;
   }
 
+  static findById(id) {
+    return this.all.find(rooftop => rooftop.id === id);
+  }
+
 }
 
 Rooftop.all = []

@@ -46,12 +46,14 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
     const rooftopData = rooftop.data
 
-    // render JSON response
-    render(rooftopData)
+    render(rooftopData);
 
-    // then clear form and go to the top of the page
+    successMsg();
     createRooftopForm.reset();
     slowScroll();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
   })
 }
 
@@ -81,4 +83,9 @@ function render(rooftop) {
   </div><br><br><br>`;
 
   document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
+}
+
+function successMsg() {
+  const msg = `<div class="alert alert-success" role="alert">Rooftop has been added!</div>`
+  document.querySelector('#alertMsg').innerHTML += msg
 }

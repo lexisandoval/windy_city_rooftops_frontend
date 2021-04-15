@@ -16,11 +16,11 @@ function getRooftops() {
   .then(response => response.json())
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
-      // let newRooftop = new Rooftop(rooftop)
+      let newRooftop = new Rooftop(rooftop, rooftop.attributes)
 
       render(rooftop)
     })
-  })
+  }) 
 }
 
 function createFormHandler(e) {

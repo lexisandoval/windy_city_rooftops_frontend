@@ -114,9 +114,9 @@ function renderAbout(e) {
               <p>This web application was created by Lexi Sandoval during the Flatiron School Software Development Bootcamp. Lexi is currently searching for work in Chicago and is interested in web development or application development positions.</p>
               <p>Information for this website was obtained from <em><a href="https://www.timeout.com/chicago/bars/rooftop-bars-the-best-outdoor-drinking-patios-in-chicago" class="p-link" target="_blank">timeoutchicago.com</a></em>.</p>
               
-              <a href="mailto: lexi.sandoval9@gmail.com"><i class="fas fa-envelope"></i></a>
-              <a href="https://github.com/lexisandoval" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/alejandra-sandoval-974871133/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto: lexi.sandoval9@gmail.com"><i class="fas fa-envelope p-link"></i></a>
+              <a href="https://github.com/lexisandoval" target="_blank"><i class="fab fa-github p-link"></i></a>
+              <a href="https://www.linkedin.com/in/alejandra-sandoval-974871133/" target="_blank"><i class="fab fa-linkedin p-link"></i></a>
             </div>
           </div>
         </div>

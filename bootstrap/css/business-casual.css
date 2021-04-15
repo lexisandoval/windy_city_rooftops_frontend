@@ -107,14 +107,19 @@ p {
   font-family: 'Raleway';
 }
 
-.p-link, .p-link:hover {
+.p-link, .top-link {
   text-decoration: none;
   color: black;
 }
 
-.top-link, .top-link:hover {
+.p-link:hover {
   text-decoration: none;
-  color:black;
+  color: rgb(170, 165, 158)
+}
+
+.top-link:hover {
+  text-decoration: none;
+  color: black;
 }
 
 @media (min-width: 992px) {
@@ -122,10 +127,10 @@ p {
     font-size: 0.9rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: #e6a756;
+    color: rgb(170, 165, 158);
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #e6a756;
+    color: rgb(170, 165, 158);
   }
 }
 

@@ -13,28 +13,7 @@ function getRooftops() {
   .then(response => response.json())
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
-      const rooftopMarkup =
-        `<div data-id=${rooftop.id}>
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex mr-auto rounded">
-              <a class="p-link" href="${rooftop.attributes.website_url}" target="_blank">
-                <h2 class="section-heading mb-0">
-                  <span class="section-heading-lower center">${rooftop.attributes.name}</span>
-                  <span class="center section-heading-upper">${rooftop.attributes.address}</span>
-                </h2>
-              </a>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="">
-          <div class="product-item-description d-flex ml-auto">
-            <div class="bg-faded p-5 rounded">
-              <p class="mb-0">${rooftop.attributes.description}</p><br>
-              <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
-            </div>
-          </div>
-        </div><br><br><br>`;
-
-        document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
+      render(rooftop)
     })
   })
 }
@@ -68,29 +47,9 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
     const rooftopData = rooftop.data
 
     // render JSON response
-    const rooftopMarkup = `<div data-id=${rooftop.id}>
-                            <div class="alert alert-success" role="alert">Rooftop has been added!</div>
-                              <div class="product-item-title d-flex">
-                                <div class="bg-faded p-5 d-flex mr-auto rounded">
-                                  <a class="p-link" href="${rooftopData.attributes.website_url}" target="_blank">
-                                    <h2 class="section-heading mb-0">
-                                      <span class="section-heading-lower center">${rooftopData.attributes.name}</span>
-                                      <span class="center section-heading-upper">${rooftopData.attributes.address}</span>
-                                    </h2>
-                                  </a>
-                                </div>
-                              </div>
-                              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftopData.attributes.image_url}" alt="">
-                              <div class="product-item-description d-flex ml-auto">
-                                <div class="bg-faded p-5 rounded">
-                                  <p class="mb-0">${rooftopData.attributes.description}</p><br>
-                                  <p class="mb-0 neighborhood">Neighborhood: ${rooftopData.attributes.neighborhood.name}</p>
-                                </div>
-                              </div>
-                            </div><br><br><br>`;
+    render(rooftopData)
 
-    document.querySelector('#rooftop-container').innerHTML += rooftopMarkup;
-
+    // then clear form and go to the top of the page
     createRooftopForm.reset();
     slowScroll();
   })
@@ -98,4 +57,28 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
 function slowScroll() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function render(rooftop) {
+  const rooftopMarkup = `<div data-id=${rooftop.id}>
+    <div class="product-item-title d-flex">
+      <div class="bg-faded p-5 d-flex mr-auto rounded">
+        <a class="p-link" href="${rooftop.attributes.website_url}" target="_blank">
+          <h2 class="section-heading mb-0">
+            <span class="section-heading-lower center">${rooftop.attributes.name}</span>
+            <span class="center section-heading-upper">${rooftop.attributes.address}</span>
+          </h2>
+        </a>
+      </div>
+    </div>
+    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="${rooftop.attributes.image_url}" alt="">
+    <div class="product-item-description d-flex ml-auto">
+      <div class="bg-faded p-5 rounded">
+        <p class="mb-0">${rooftop.attributes.description}</p><br>
+        <p class="mb-0 neighborhood">Neighborhood: ${rooftop.attributes.neighborhood.name}</p>
+      </div>
+    </div>
+  </div><br><br><br>`;
+
+  document.querySelector('#rooftop-container').innerHTML += rooftopMarkup
 }

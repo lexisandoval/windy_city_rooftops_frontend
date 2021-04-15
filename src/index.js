@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:3000/api/v1/rooftops"
+const endPoint = "https://windycityrooftops-api.herokuapp.com/api/v1/rooftops"
 const createRooftopForm = document.querySelector('#rt');
 
 document.addEventListener('DOMContentLoaded', () => {

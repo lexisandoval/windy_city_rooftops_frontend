@@ -8,13 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const aboutLink = document.querySelector('#about');
   aboutLink.addEventListener('click', (e) => renderAbout(e))
-
-  const rooftopEditBtn = document.querySelector('#editBtn')
-  rooftopEditBtn.addEventListener('click', e => {
-    const id = parseInt(e.target.dataset.id);
-    const rooftop = Rooftop.findById(id);
-    console.log(rooftop);
-  });
 })
 
 function getRooftops() {

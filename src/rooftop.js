@@ -29,14 +29,11 @@ class Rooftop {
           <p class="mb-0">${this.description}</p><br>
           <div class="row">
           <p class="mb-0 neighborhood">Neighborhood: ${this.neighborhood.name}</p>
+          <button data-id=${this.id} class="btn btn-primary ml-auto">Edit</button>
           </div>
         </div>
       </div>
     </div><br><br><br>`;
-  }
-
-  renderEditBtn() {
-    return `<button data-id=${this.id} id="editBtn" class="btn btn-primary ml-auto">Edit</button>`;
   }
 
   static findById(id) {

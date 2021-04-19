@@ -45,6 +45,7 @@ class Rooftop {
           <div class="container">
             <div class="about-heading-content col-xl-10 col-lg-10 mx-auto bg-faded rounded p-5 white" id="rooftop-form">
               <h2 class="section-heading mb-4" id="rt-head"><span class="center section-heading-lower">Edit a Rooftop</span></h2>
+              <p><b>All fields must be completed.</b></p><br>
               <form data-id=${this.id} id=${this.id}>
               <div class="form-group">
                   <label for="rt-name"><p>Rooftop Name</p></label>

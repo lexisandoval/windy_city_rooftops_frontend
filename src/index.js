@@ -1,26 +1,32 @@
-const endPoint = "https://windycityrooftops-api.herokuapp.com/api/v1/rooftops"
+// const endPoint = "https://windycityrooftops-api.herokuapp.com/api/v1/rooftops"
+const endPoint = "http://localhost:3000/api/v1/rooftops"
+
 const createRooftopForm = document.querySelector('#rt');
 
 document.addEventListener('DOMContentLoaded', () => {
+  const aboutLink = document.querySelector('#about');
+  aboutLink.addEventListener('click', (e) => renderAbout(e))
+
   getRooftops()
 
   createRooftopForm.addEventListener('submit', (e) => createFormHandler(e))
 
-  const aboutLink = document.querySelector('#about');
-  aboutLink.addEventListener('click', (e) => renderAbout(e))
-
   editRooftop()
+
 })
 
 function editRooftop() {
   document.addEventListener('click', function(e) {
-    for(i = 1; i < Rooftop.all.length; i++) {
+
+    for(i = 1; i <= Rooftop.all.length; i++) {
       id = i + ""
       if (e.target.id === ("editBtn" + id)) {
         rooftop = Rooftop.findById(id)
         document.querySelector('#main-bod').innerHTML = rooftop.renderUpdateForm()
-      }
 
+        const editForm = document.querySelector('#main-bod')
+        editForm.addEventListener('submit', e => updateFormHandler(e))
+      }
     }
   });
 }
@@ -68,22 +74,51 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
 
     document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
 
-    successMsg();
     createRooftopForm.reset();
-    slowScroll();
+    slowScroll()
   })
   .catch((error) => {
     console.error('Error:', error);
   })
 }
 
-function slowScroll() {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+function updateFormHandler(e) {
+  e.preventDefault();
+
+  const rooftop = Rooftop.findById(e.target.id);
+  const id = rooftop.id
+  const name = e.target.querySelector('#rt-name').value;
+  const address = e.target.querySelector('#rt-address').value;
+  const image = e.target.querySelector('#rt-image').value;
+  const website = e.target.querySelector('#rt-website').value;
+  const description = e.target.querySelector('#rt-description').value;
+  const neighborhoodID = parseInt(e.target.querySelector('#neighborhoods').value);
+
+  patchRooftop(id, name, address, image, website, description, neighborhoodID)
 }
 
-function successMsg() {
-  const msg = `<div class="alert alert-success" role="alert">Rooftop has been added!</div>`
-  document.querySelector('#alertMsg').innerHTML += msg
+function patchRooftop(id, name, address, image_url, website_url, description, neighborhood_id) {
+  const bodyData = {name, address, image_url, website_url, description, neighborhood_id}
+
+  fetch(`${endPoint}/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(bodyData),
+  })
+    .then(response => response.json())
+    .then(updatedRooftop => {
+      
+      console.log(updatedRooftop)
+
+      window.location.assign("index.html");
+    })
+}
+
+function slowScroll() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function renderAbout(e) {

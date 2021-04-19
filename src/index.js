@@ -8,18 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const aboutLink = document.querySelector('#about');
   aboutLink.addEventListener('click', (e) => renderAbout(e))
+
+  editRooftop()
 })
+
+function editRooftop() {
+  document.addEventListener('click', function(e) {
+    if (e.target.id === 'editBtn1') {
+      id = "1"
+      rooftop = Rooftop.findById(id)
+      document.querySelector('#main-bod').innerHTML = rooftop.renderUpdateForm()
+    }
+  });
+}
 
 function getRooftops() {
   fetch(endPoint)
   .then(response => response.json())
   .then(rooftops => {
     rooftops.data.forEach(rooftop => {
-
       const newRooftop = new Rooftop(rooftop, rooftop.attributes)
 
       document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
-
     })
   }) 
 }

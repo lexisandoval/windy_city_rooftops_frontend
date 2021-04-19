@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   createRooftopForm.addEventListener('submit', (e) => createFormHandler(e))
 
   editRooftop()
-
 })
 
 function editRooftop() {

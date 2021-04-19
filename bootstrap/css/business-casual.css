@@ -122,12 +122,6 @@ p {
   color: black;
 }
 
-.sticky {
-  position: sticky;
-  left: 1rem;
-  bottom: 1rem;
-}
-
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 0.9rem;

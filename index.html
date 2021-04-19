@@ -31,7 +31,7 @@
     <span class="site-heading-lower">Windy City Rooftops</span>
   </h1>
 
-  <!-- Navigation -->
+  <!-- navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
       <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Windy City Rooftops</a>
@@ -53,89 +53,95 @@
     </div>
   </nav>
 
+  <!-- beginning of main body -->
   <div id="main-bod">
 
-  <section class="page-section clearfix">
-    <div class="container">
-      <div class="col-xl-10 col-lg-10 mx-auto">
-        <div id="alertMsg"></div>
+    <!-- alert message if rooftop is added or edited -->
+    <section class="page-section clearfix">
+      <div class="container">
+        <div class="col-xl-10 col-lg-10 mx-auto">
+          <div id="alertMsg"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="page-section clearfix">
-    <div class="container">
-      <div class="about-heading-content">
-        <div class="row">
-          <div class="col-xl-10 col-lg-10 mx-auto">
-            <div class="bg-faded rounded p-5">
-              <h2 class="section-heading mb-4">
-                <span class="center section-heading-lower">Sunshine and a City View</span>
-              </h2>
-              <p>Who's ready to enjoy drinks and make memories while overlooking the beautiful skyline? We've compiled a list of Chicago's best rooftop bars and restaurants so you can start planning your next visit. Get ready to sit back and enjoy the sunshine. Cheers to the Windy City!</p>
-              <p>If you know of an amazing rooftop that isn't included on our list, please feel free to <em><a href="#rt-head" class="p-link">add it below.</a></em></p>
+    <!-- heading card -->
+    <section class="page-section clearfix">
+      <div class="container">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-10 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="center section-heading-lower">Sunshine and a City View</span>
+                </h2>
+                <p>Who's ready to enjoy drinks and make memories while overlooking the beautiful skyline? We've compiled a list of Chicago's best rooftop bars and restaurants so you can start planning your next visit. Get ready to sit back and enjoy the sunshine. Cheers to the Windy City!</p>
+                <p>If you know of an amazing rooftop that isn't included on our list, please feel free to <em><a href="#rt-head" class="p-link">add it below.</a></em></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="page-section clearfix">
-    <div class="container">
-      <div id="rooftop-container" class="product-item">
-        <!-- javascript inserted here -->
+    <!-- rooftop cards -->
+    <section class="page-section clearfix">
+      <div class="container">
+        <div id="rooftop-container" class="product-item">
+          <!-- javascript inserted here -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section> 
-      <div class="center intro-button mx-auto" style="margin-bottom: 5rem;">
-        <div class="container">
-          <div class="about-heading-content col-xl-10 col-lg-10 mx-auto bg-faded rounded p-5 white" id="rooftop-form">
-            <h2 class="section-heading mb-4" id="rt-head"><span class="center section-heading-lower">Add a Rooftop</span></h2>
-            <form id="rt">
-              <div class="form-group">
-                <label for="rt-name"><p>Rooftop Name</p></label>
-                <input type="text" class="form-control" value = "" id="rt-name">
-              </div>
-              <div class="form-group">
-                <label for="rt-address"><p>Address</p></label>
-                <input type="text" class="form-control" value = "" id="rt-address">
-              </div>
-              <div class="form-group">
-                <label for="rt-image">Image Url</label>
-                <input type="text" class="form-control" value = "" id="rt-image">
-              </div>
-              <div class="form-group">
-                <label for="rt-website">Website Link</label>
-                <input type="text" class="form-control" value = "" id="rt-website">
-              </div>
-              <div class="form-group">
-                <label for="rt-description">Description</label>
-                <textarea class="form-control" id="rt-description" value = "" rows="2"></textarea>
-              </div>
-              <div class="form-group">
-                <select class="form-control" id="neighborhoods" value = "" name="neighborhoods">
-                  <option selected>Neighborhood</option>
-                  <option value="1">Lincoln Park</option>
-                  <option value="2">Logan Square</option>
-                  <option value="3">Loop</option>
-                  <option value="4">River North</option>
-                  <option value="5">South Loop</option>
-                  <option value="6">West Loop</option>
-                  <option value="7">Wicker Park</option>
-                </select>              
-              </div><br>
-              <input id='create-button' type="submit" name="submit" value="Add Rooftop" class="btn  submit">
-            </form>
-          </div>
-        </div><br><br>
-        <a class="center mx-auto top-link" href="#">Back to top</a>
+    <!-- add rooftop form -->
+    <section> 
+        <div class="center intro-button mx-auto" style="margin-bottom: 5rem;">
+          <div class="container">
+            <div class="about-heading-content col-xl-10 col-lg-10 mx-auto bg-faded rounded p-5 white" id="rooftop-form">
+              <h2 class="section-heading mb-4" id="rt-head"><span class="center section-heading-lower">Add a Rooftop</span></h2>
+              <form id="rt">
+                <div class="form-group">
+                  <label for="rt-name"><p>Rooftop Name</p></label>
+                  <input type="text" class="form-control" value = "" id="rt-name">
+                </div>
+                <div class="form-group">
+                  <label for="rt-address"><p>Address</p></label>
+                  <input type="text" class="form-control" value = "" id="rt-address">
+                </div>
+                <div class="form-group">
+                  <label for="rt-image">Image Url</label>
+                  <input type="text" class="form-control" value = "" id="rt-image">
+                </div>
+                <div class="form-group">
+                  <label for="rt-website">Website Link</label>
+                  <input type="text" class="form-control" value = "" id="rt-website">
+                </div>
+                <div class="form-group">
+                  <label for="rt-description">Description</label>
+                  <textarea class="form-control" id="rt-description" value = "" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="neighborhoods" value = "" name="neighborhoods">
+                    <option selected>Neighborhood</option>
+                    <option value="1">Lincoln Park</option>
+                    <option value="2">Logan Square</option>
+                    <option value="3">Loop</option>
+                    <option value="4">River North</option>
+                    <option value="5">South Loop</option>
+                    <option value="6">West Loop</option>
+                    <option value="7">Wicker Park</option>
+                  </select>              
+                </div><br>
+                <input id='create-button' type="submit" name="submit" value="Add Rooftop" class="btn  submit">
+              </form>
+            </div>
+          </div><br><br>
+          <a class="center mx-auto top-link" href="#">Back to top</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+  <!-- end main body -->
   </div>
 
   <footer class="footer text-faded text-center py-5">

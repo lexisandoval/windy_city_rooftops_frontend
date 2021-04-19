@@ -69,7 +69,7 @@ class Rooftop {
                 <div class="form-group">
                   <label for="neighborhoods"><b>Please reselect a neighborhood</b></label>
                   <select class="form-control" id="neighborhoods" value="${this.neighborhood.name}" name="neighborhoods">
-                    <option selected>Neighborhood: (Currently: ${this.neighborhood.name})</option>
+                    <option selected>(Currently: ${this.neighborhood.name})</option>
                     <option value="1">Lincoln Park</option>
                     <option value="2">Logan Square</option>
                     <option value="3">Loop</option>
@@ -79,7 +79,7 @@ class Rooftop {
                     <option value="7">Wicker Park</option>
                   </select>
                 </div><br>
-                <input id='create-button' type="submit" name="submit" value="Edit Rooftop" class="btn submit">
+                <input id='create-button' type="submit" name="submit" value="Update Rooftop" class="btn submit">
               </form><br>
             </div>
           </div>

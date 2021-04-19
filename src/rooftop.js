@@ -80,7 +80,6 @@ class Rooftop {
                 </div><br>
                 <input id='create-button' type="submit" name="submit" value="Edit Rooftop" class="btn submit">
               </form><br>
-              <button class="btn submit">Close</button>
             </div>
           </div>
         </div>

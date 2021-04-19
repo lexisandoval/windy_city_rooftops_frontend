@@ -14,10 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function editRooftop() {
   document.addEventListener('click', function(e) {
-    if (e.target.id === 'editBtn1') {
-      id = "1"
-      rooftop = Rooftop.findById(id)
-      document.querySelector('#main-bod').innerHTML = rooftop.renderUpdateForm()
+    for(i = 1; i < Rooftop.all.length; i++) {
+      id = i + ""
+      if (e.target.id === ("editBtn" + id)) {
+        rooftop = Rooftop.findById(id)
+        document.querySelector('#main-bod').innerHTML = rooftop.renderUpdateForm()
+      }
+
     }
   });
 }

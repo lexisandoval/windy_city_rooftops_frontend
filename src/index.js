@@ -121,7 +121,7 @@ function slowScroll() {
 function renderAbout(e) {
   e.preventDefault()
 
-  const aboutMarkup =  `<section class="page-section about-heading">
+  const aboutMarkup =  `<section class="page-section about-heading" style="margin-bottom:5rem">
     <div class="container">
       <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" style="width:30%; height:auto;" src="public/images/lexi.jpg" alt="">
       <div class="about-heading-content">

@@ -67,8 +67,9 @@ class Rooftop {
                   <textarea class="form-control" id="rt-description" value = "${this.description}" rows="2">${this.description}</textarea>
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="neighborhoods" value = "${this.neighborhood.name}" name="neighborhoods">
-                    <option selected>Neighborhood</option>
+                  <label for="neighborhoods"><b>Please reselect a neighborhood</b></label>
+                  <select class="form-control" id="neighborhoods" value="${this.neighborhood.name}" name="neighborhoods">
+                    <option selected>Neighborhood: (Currently: ${this.neighborhood.name})</option>
                     <option value="1">Lincoln Park</option>
                     <option value="2">Logan Square</option>
                     <option value="3">Loop</option>
@@ -76,7 +77,7 @@ class Rooftop {
                     <option value="5">South Loop</option>
                     <option value="6">West Loop</option>
                     <option value="7">Wicker Park</option>
-                  </select>              
+                  </select>
                 </div><br>
                 <input id='create-button' type="submit" name="submit" value="Edit Rooftop" class="btn submit">
               </form><br>

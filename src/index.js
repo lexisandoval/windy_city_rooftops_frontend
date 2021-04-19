@@ -67,16 +67,15 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
     console.log(rooftop);
 
     const rooftopData = rooftop.data
+    console.log(rooftopData)
 
     const newRooftop = new Rooftop(rooftopData, rooftopData.attributes)
+    console.log(newRooftop)
 
     document.querySelector('#rooftop-container').innerHTML += newRooftop.render()
 
     createRooftopForm.reset();
     slowScroll()
-  })
-  .catch((error) => {
-    console.error('Error:', error);
   })
 }
 

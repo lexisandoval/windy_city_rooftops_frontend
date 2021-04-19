@@ -39,13 +39,13 @@ class Rooftop {
 
   renderUpdateForm() {
     return `
-    <section class="page-section clearfix">
+    <section class="page-section clearfix" id="editForm">
       <div class="container">        
         <div class="center intro-button mx-auto" style="margin-bottom: 5rem;">
           <div class="container">
             <div class="about-heading-content col-xl-10 col-lg-10 mx-auto bg-faded rounded p-5 white" id="rooftop-form">
               <h2 class="section-heading mb-4" id="rt-head"><span class="center section-heading-lower">Edit a Rooftop</span></h2>
-              <form data-id=${this.id} >
+              <form data-id=${this.id} id=${this.id}>
               <div class="form-group">
                   <label for="rt-name"><p>Rooftop Name</p></label>
                   <input type="text" class="form-control" value="${this.name}" id="rt-name">
@@ -67,7 +67,7 @@ class Rooftop {
                   <textarea class="form-control" id="rt-description" value = "${this.description}" rows="2">${this.description}</textarea>
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="neighborhoods" value = "$this.neighborhood.name" name="neighborhoods">
+                  <select class="form-control" id="neighborhoods" value = "${this.neighborhood.name}" name="neighborhoods">
                     <option selected>Neighborhood</option>
                     <option value="1">Lincoln Park</option>
                     <option value="2">Logan Square</option>
@@ -78,8 +78,9 @@ class Rooftop {
                     <option value="7">Wicker Park</option>
                   </select>              
                 </div><br>
-                <input id='create-button' type="submit" name="submit" value="Edit Rooftop" class="btn  submit">
-              </form>
+                <input id='create-button' type="submit" name="submit" value="Edit Rooftop" class="btn submit">
+              </form><br>
+              <button class="btn submit">Close</button>
             </div>
           </div>
         </div>

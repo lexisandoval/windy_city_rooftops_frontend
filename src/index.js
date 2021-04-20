@@ -1,5 +1,4 @@
 const endPoint = "https://windycityrooftops-api.herokuapp.com/api/v1/rooftops"
-
 const createRooftopForm = document.querySelector('#rt');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   editRooftop()
 })
 
+// loads edit rooftop form and rooftop information
 function editRooftop() {
   document.addEventListener('click', function(e) {
 
@@ -29,6 +29,7 @@ function editRooftop() {
   });
 }
 
+// get all rooftops from API
 function getRooftops() {
   fetch(endPoint)
   .then(response => response.json())
@@ -41,6 +42,7 @@ function getRooftops() {
   }) 
 }
 
+// set values for add rooftop form
 function createFormHandler(e) {
   e.preventDefault()
 
@@ -54,6 +56,7 @@ function createFormHandler(e) {
   postRooftop(nameInput, addressInput, imgInput, websiteInput, descriptionInput, neighborhoodID)
 }
 
+// post new rooftop to API
 function postRooftop(name, address, image_url, website_url, description, neighborhood_id) {
   const bodyData = {name, address, image_url, website_url, description, neighborhood_id}
 
@@ -79,6 +82,7 @@ function postRooftop(name, address, image_url, website_url, description, neighbo
   })
 }
 
+// set values for edit rooftop form
 function updateFormHandler(e) {
   e.preventDefault();
 
@@ -94,6 +98,7 @@ function updateFormHandler(e) {
   patchRooftop(id, name, address, image, website, description, neighborhoodID)
 }
 
+// edit rooftop in API
 function patchRooftop(id, name, address, image_url, website_url, description, neighborhood_id) {
   const bodyData = {name, address, image_url, website_url, description, neighborhood_id}
 
@@ -114,10 +119,12 @@ function patchRooftop(id, name, address, image_url, website_url, description, ne
     })
 }
 
+// scroll slow to top of page, used after rooftop is added
 function slowScroll() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+// render the About page
 function renderAbout(e) {
   e.preventDefault()
 

@@ -14,7 +14,7 @@ The web application will open when you run the command above.
 
 Once open, you may browse through and add to a list of Chicago's best rooftops. Cheers!
 
-You may visit the WindyCityRooftops website [here](windycityrooftops.netlify.app/) (you may need to refresh the page in order to load rooftop data).
+You may visit the WindyCityRooftops website [here](windycityrooftops.netlify.app/) (it may take around 10-15 seconds for rooftop data to load).
 
 You may visit the API/backend repository [here](https://github.com/lexisandoval/windy_city_rooftops_backend.git) and its website [here](https://windycityrooftops-api.herokuapp.com).
 
